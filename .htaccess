@@ -1,0 +1,10 @@
+# Turn rewrite engine on
+Options +FollowSymlinks
+RewriteEngine on
+
+# map neat URL to internal URL
+RewriteRule ^mobile/list/$   RestController.php?view=all [nc,qsa]
+RewriteRule ^mobile/list/([0-9]+)/$   RestController.php?view=single&id=$1 [nc,qsa]
+RewriteRule ^mobile/delete/([0-9]+)/$ RestController.php?view=delete$id=$1 [nc,qsa]
+RewriteRule ^mobile/post/(\w+)/$ RestController.php?view=post$mobile=$1 [nc,qsa]
+RewriteRule ^mobile/update/(\w+)/$ RestController.php?view=update$mobile=$1 [nc,qsa]
